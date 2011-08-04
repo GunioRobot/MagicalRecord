@@ -164,10 +164,9 @@ static NSString const * kMagicalRecordManagedObjectContextKey = @"MagicalRecord_
 
 - (void) saveWrapper
 {
-    @autoreleasepool
-    {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         [self save];
-    }
+    [pool drain];
 }
 
 - (BOOL) saveOnBackgroundThread

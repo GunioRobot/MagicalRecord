@@ -38,7 +38,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
     NSURL *pathToStore = [urlForStore URLByDeletingLastPathComponent];
     
     NSError *error = nil;
-    BOOL pathWasCreated = [fileManager createDirectoryAtURL:pathToStore withIntermediateDirectories:YES attributes:nil error:&error];
+    BOOL pathWasCreated = [fileManager createDirectoryAtPath:[pathToStore path] withIntermediateDirectories:YES attributes:nil error:&error];
 
     if (!pathWasCreated) 
     {
