@@ -11,7 +11,7 @@
 /**
     Matches dictionaries containing key-value pairs satisfying given lists of keys and value
     matchers.
- 
+
     @b Factory: @ref hasEntries
     @ingroup collection_matchers
  */
@@ -35,7 +35,7 @@
 /**
     Matches dictionaries containing key-value pairs satisfying a given lists of alternating keys and
     value matchers.
- 
+
     @b Synonym: @ref hasEntries
     @param keysAndValueMatchers  Alternating pairs of keys and value matchers - or straight values for @ref equalTo matching.
     @see HCIsDictionaryContainingEntries

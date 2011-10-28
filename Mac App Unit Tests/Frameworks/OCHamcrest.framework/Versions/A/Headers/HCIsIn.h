@@ -29,7 +29,7 @@
 
 /**
     Is the object present in the given collection?
- 
+
     @b Synonym: @ref isIn
     @see HCIsIn
     @ingroup collection_matchers

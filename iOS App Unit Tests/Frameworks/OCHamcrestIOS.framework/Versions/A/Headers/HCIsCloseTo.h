@@ -30,7 +30,7 @@
 
 /**
     Is the argument a number close to a value, within some delta?
- 
+
     @b Synonym: @ref closeTo
     @see HCIsCloseTo
     @ingroup number_matchers

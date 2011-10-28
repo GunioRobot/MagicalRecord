@@ -29,7 +29,7 @@
 
 /**
     Matches a collection if its elements, in order, satisfy a list of matchers.
- 
+
     @b Synonym: @ref contains
     @param itemMatcher1  Comma-separated list of matchers - or values for @ref equalTo matching - ending with @c nil.
     @see HCIsCollectionContainingInOrder

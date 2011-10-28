@@ -23,9 +23,9 @@
 {
     [NSManagedObjectModel setDefaultManagedObjectModel:[NSManagedObjectModel managedObjectModelNamed:@"TestModel.momd"]];
     [MagicalRecordHelpers setupCoreDataStackWithInMemoryStore];
-    
+
     id singleEntity = [FixtureHelpers dataFromJSONFixtureNamed:@"SingleRelatedEntity"];
-    
+
     testEntity = [SingleRelatedEntity MR_importFromDictionary:singleEntity];
 }
 
@@ -37,7 +37,7 @@
 - (void) testImportAnEntityRelatedToAnotherEntityWithAOneToOneRelationship
 {
     assertThat(testEntity, is(notNilValue()));
-    
+
     assertThat(testEntity.testRelationship, is(notNilValue()));
     assertThat(testEntity.testRelationship.sampleBaseAttribute, containsString(@"BASE"));
     assertThat(testEntity.testRelationship.mainTestEntity, is(equalTo(testEntity)));
@@ -45,7 +45,7 @@
 
 - (void) testImportAnEntityRelatedToAnotherEntityWithAManyToOneRelationship
 {
-    GHFail(@"Test Not Implemented");    
+    GHFail(@"Test Not Implemented");
 }
 
 - (void) testImportAnEntityRelatedToAnitherEntityWithAManyToManyRelationship
@@ -61,7 +61,7 @@
 
 - (void) testImportAnEntityRelatedToASubEntityWithAManyToOneRelationship
 {
-    GHFail(@"Test Not Implemented");   
+    GHFail(@"Test Not Implemented");
 }
 
 - (void) testImportAnEntityRelatedToASubEntityWithAManyToManyRelationship

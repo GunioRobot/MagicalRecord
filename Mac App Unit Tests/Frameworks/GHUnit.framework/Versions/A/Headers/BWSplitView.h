@@ -21,7 +21,7 @@
 	NSArray *stateForLastPreferredCalculations;
 	int collapsiblePopupSelection;
 	float uncollapsedSize;
-	
+
 	// Collapse button
 	NSButton *toggleCollapseButton;
 	BOOL isAnimating;

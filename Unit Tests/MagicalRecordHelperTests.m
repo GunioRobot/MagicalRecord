@@ -26,15 +26,15 @@
     assertThat([NSManagedObjectContext defaultContext], is(notNilValue()));
     assertThat([NSManagedObjectModel MR_defaultManagedObjectModel], is(notNilValue()));
     assertThat([NSPersistentStoreCoordinator MR_defaultStoreCoordinator], is(notNilValue()));
-    assertThat([NSPersistentStore defaultPersistentStore], is(notNilValue()));    
+    assertThat([NSPersistentStore defaultPersistentStore], is(notNilValue()));
 }
 
 - (void) testCreateDefaultCoreDataStack
 {
     [MagicalRecordHelpers setupCoreDataStack];
-    
+
     [self assertDefaultStack];
-    
+
     NSPersistentStore *defaultStore = [NSPersistentStore defaultPersistentStore];
     assertThat([[defaultStore URL] absoluteString], endsWith(kMagicalRecordDefaultStoreFileName));
     assertThat([defaultStore type], is(equalTo(NSSQLiteStoreType)));
@@ -43,9 +43,9 @@
 - (void) testCreateInMemoryCoreDataStack
 {
     [MagicalRecordHelpers setupCoreDataStackWithInMemoryStore];
-    
+
     [self assertDefaultStack];
-    
+
     NSPersistentStore *defaultStore = [NSPersistentStore defaultPersistentStore];
     assertThat([defaultStore type], is(equalTo(NSInMemoryStoreType)));
 }
@@ -54,9 +54,9 @@
 {
     NSString *testStoreName = @"MyTestDataStore.sqlite";
     [MagicalRecordHelpers setupCoreDataStackWithStoreNamed:testStoreName];
-    
+
     [self assertDefaultStack];
-    
+
     NSPersistentStore *defaultStore = [NSPersistentStore defaultPersistentStore];
     assertThat([defaultStore type], is(equalTo(NSSQLiteStoreType)));
     assertThat([[defaultStore URL] absoluteString], endsWith(testStoreName));
@@ -66,7 +66,7 @@
 - (void) testCanSetAUserSpecifiedErrorHandler
 {
     [MagicalRecordHelpers setErrorHandlerTarget:self action:@selector(customErrorHandler:)];
-    
+
     assertThat([MagicalRecordHelpers errorHandlerTarget], is(equalTo(self)));
     assertThat(NSStringFromSelector([MagicalRecordHelpers errorHandlerAction]), is(equalTo(NSStringFromSelector(@selector(customErrorHandler:)))));
 }
@@ -83,10 +83,10 @@
 {
     errorHandlerWasCalled_ = NO;
     [MagicalRecordHelpers setErrorHandlerTarget:self action:@selector(magicalRecordErrorHandlerTest:)];
-    
+
     NSError *testError = [NSError errorWithDomain:@"MRTests" code:1000 userInfo:nil];
     [MagicalRecordHelpers handleErrors:testError];
-    
+
     assertThatBool(errorHandlerWasCalled_, is(equalToBool(YES)));
 }
 

@@ -34,7 +34,7 @@
 
 // Default exception handler
 void exceptionHandler(NSException *exception);
-void exceptionHandler(NSException *exception) { 
+void exceptionHandler(NSException *exception) {
   NSLog(@"%@\n%@", [exception reason], GHUStackTraceFromException(exception));
 }
 
@@ -46,23 +46,23 @@ int main(int argc, char *argv[]) {
    NSZombieEnabled                       NO       "YES"
    NSDeallocateZombies                   NO       "YES"
    NSHangOnUncaughtException             NO       "YES"
-   
+
    NSEnableAutoreleasePool              YES       "NO"
    NSAutoreleaseFreedObjectCheckEnabled  NO       "YES"
    NSAutoreleaseHighWaterMark             0       non-negative integer
    NSAutoreleaseHighWaterResolution       0       non-negative integer
-   
+
    For info on these varaiables see NSDebug.h; http://theshadow.uw.hu/iPhoneSDKdoc/Foundation.framework/NSDebug.h.html
-   
+
    For malloc debugging see: http://developer.apple.com/mac/library/documentation/Performance/Conceptual/ManagingMemory/Articles/MallocDebug.html
    */
   NSSetUncaughtExceptionHandler(&exceptionHandler);
-  
+
   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-  
+
   // Register any special test case classes
-  //[[GHTesting sharedInstance] registerClassName:@"GHSpecialTestCase"];  
-  
+  //[[GHTesting sharedInstance] registerClassName:@"GHSpecialTestCase"];
+
   int retVal = 0;
   // If GHUNIT_CLI is set we are using the command line interface and run the tests
   // Otherwise load the GUI app
@@ -77,7 +77,7 @@ int main(int argc, char *argv[]) {
     // Or set global:
     //GHUnitTest = @"GHSlowTest";
     [NSApp run];
-    [app release];    
+    [app release];
   }
   [pool release];
   return retVal;

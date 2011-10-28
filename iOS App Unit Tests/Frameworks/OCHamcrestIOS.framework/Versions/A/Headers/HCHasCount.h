@@ -51,7 +51,7 @@ OBJC_EXPORT id<HCMatcher> HC_hasCount(id<HCMatcher> matcher);
 
 /**
     Matches collections for which @c -count equals a given count.
- 
+
     @b Synonym: @ref hasCountOf
     @see HCHasCount
     @ingroup collection_matchers

@@ -29,7 +29,7 @@
 
 /**
     Is the value an instance of a particular type?
- 
+
     @b Synonym: @ref instanceOf
     @see HCIsInstanceOf
     @ingroup core_matchers

@@ -10,9 +10,9 @@
 
 /**
     Is the object equal to another object, as tested by the @c -isEqual: method?
- 
+
     If the given object is @c nil, the matcher will match @c nil.
- 
+
     @b Factory: @ref equalTo
     @ingroup core_matchers
  */
@@ -31,9 +31,9 @@
 
 /**
     Is the object equal to another object, as tested by the @c -isEqual: method?
- 
+
     If the given object is @c nil, the matcher will match @c nil.
- 
+
     @b Synonym: @ref equalTo
     @see HCIsEqual
     @ingroup core_matchers

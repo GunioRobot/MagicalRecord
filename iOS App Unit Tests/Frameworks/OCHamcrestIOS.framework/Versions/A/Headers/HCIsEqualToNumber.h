@@ -49,7 +49,7 @@ OBJC_EXPORT id<HCMatcher> HC_equalToChar(char value);
 
 
 /**
-    Is the @c double value, converted to an @c NSNumber, equal to another object? 
+    Is the @c double value, converted to an @c NSNumber, equal to another object?
 
     @b Synonym: @ref equalToDouble
     @ingroup primitive_number_matchers
@@ -58,7 +58,7 @@ OBJC_EXPORT id<HCMatcher> HC_equalToDouble(double value);
 
 /**
     equalToDouble(value) -
-    Is the @c double value, converted to an @c NSNumber, equal to another object? 
+    Is the @c double value, converted to an @c NSNumber, equal to another object?
 
     Synonym for @ref HC_equalToDouble, available if @c HC_SHORTHAND is defined.
     @ingroup primitive_number_matchers

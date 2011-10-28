@@ -29,7 +29,7 @@
 
 /**
     Matches a collection if any element satifies a given matcher.
- 
+
     @b Synonym: @ref hasItem
     @param matcherOrValue  A matcher, or a value for @ref equalTo matching.
     @see HCIsCollectionContaining
@@ -53,7 +53,7 @@ OBJC_EXPORT id<HCMatcher> HC_hasItem(id matcherOrValue);
 
 /**
     Matches a collection if all matchers are satisfied by any of the collection's elements.
- 
+
     @b Synonym: @ref hasItems
     @param matcherOrValue1  Comma-separated list of matchers - or values for @ref equalTo matching - ending with @c nil.
     @see HCIsCollectionContaining

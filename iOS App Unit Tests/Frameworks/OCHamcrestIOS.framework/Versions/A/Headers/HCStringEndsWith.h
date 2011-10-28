@@ -25,7 +25,7 @@
 
 /**
     Tests if the argument is a string that ends with a substring.
-    
+
     @b Synonym: @ref endsWith
     @see HCStringEndsWith
     @ingroup text_matchers

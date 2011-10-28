@@ -45,34 +45,34 @@ void cleanup_save_queue()
 {
     NSManagedObjectContext *mainContext  = [NSManagedObjectContext defaultContext];
     NSManagedObjectContext *localContext = mainContext;
-    
-    if (![NSThread isMainThread]) 
+
+    if (![NSThread isMainThread])
     {
-        
+
 #if kCreateNewCoordinatorOnBackgroundOperations == 1
         NSPersistentStoreCoordinator *localCoordinator = [NSPersistentStoreCoordinator coordinatorWithPersitentStore:[NSPersistentStore defaultPersistentStore]];
         localContext = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThreadWithCoordinator:localCoordinator];
 #else
         localContext = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
 #endif
-        
+
         [mainContext setMergePolicy:NSMergeByPropertyStoreTrumpMergePolicy];
         [localContext setMergePolicy:NSOverwriteMergePolicy];
     }
-    
+
     block(localContext);
-    
-    if ([localContext hasChanges]) 
+
+    if ([localContext hasChanges])
     {
         [localContext saveWithErrorHandler:errorHandler];
     }
-    
+
     localContext.notifiesMainContextOnSave = NO;
     [mainContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
 }
 
 + (void) saveDataWithBlock:(void(^)(NSManagedObjectContext *localContext))block
-{   
+{
     [self saveDataWithBlock:block errorHandler:NULL];
 }
 
@@ -87,8 +87,8 @@ void cleanup_save_queue()
 {
     dispatch_async(background_save_queue(), ^{
         [self saveDataWithBlock:block];
-        
-        if (callback) 
+
+        if (callback)
         {
             dispatch_async(dispatch_get_main_queue(), callback);
         }
@@ -99,7 +99,7 @@ void cleanup_save_queue()
 {
     dispatch_async(background_save_queue(), ^{
         [self saveDataWithBlock:block errorHandler:errorHandler];
-        
+
         if (callback)
         {
             dispatch_async(dispatch_get_main_queue(), callback);
@@ -124,12 +124,12 @@ void cleanup_save_queue()
 
 + (void) saveDataWithOptions:(ARCoreDataSaveOption)options withBlock:(void(^)(NSManagedObjectContext *localContext))block completion:(void(^)(void))callback;
 {
-    //TODO: add implementation    
+    //TODO: add implementation
 }
 
 + (void) saveDataWithOptions:(ARCoreDataSaveOption)options withBlock:(void (^)(NSManagedObjectContext *))block completion:(void (^)(void))callback errorHandler:(void(^)(NSError *))errorCallback
 {
-    
+
 }
 
 #endif

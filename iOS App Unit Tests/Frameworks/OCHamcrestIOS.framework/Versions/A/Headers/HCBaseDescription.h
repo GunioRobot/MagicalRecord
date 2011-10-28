@@ -11,7 +11,7 @@
 
 /**
     Base class for all HCDescription implementations.
- 
+
     @ingroup core
  */
 @interface HCBaseDescription : NSObject <HCDescription>

@@ -46,7 +46,7 @@
 /*!
  Perform selector if responds with multiple arguments.
  @param selector
- @param withObjects nil terminated variable argument list 
+ @param withObjects nil terminated variable argument list
  @result nil if we don't respond to the selector, otherwise the selector result
  */
 - (id)ghu_performIfRespondsToSelector:(SEL)selector withObjects:object, ...;
@@ -54,7 +54,7 @@
 /*!
  Invoke selector with arguments.
  @param selector
- @param withObjects nil terminated variable argument list 
+ @param withObjects nil terminated variable argument list
  */
 - (id)ghu_performSelector:(SEL)selector withObjects:object, ...;
 
@@ -64,7 +64,7 @@
  Invoke selector with arguments on main thread.
  Does not wait until selector is finished.
  @param selector
- @param withObjects nil terminated variable argument list 
+ @param withObjects nil terminated variable argument list
  */
 - (void)ghu_performSelectorOnMainThread:(SEL)selector withObjects:object, ...;
 
@@ -72,7 +72,7 @@
  Invoke selector with arguments on main thread.
  @param selector
  @param waitUntilDone Whether to join on selector and wait for it to finish.
- @param withObjects nil terminated variable argument list 
+ @param withObjects nil terminated variable argument list
  */
 - (void)ghu_performSelectorOnMainThread:(SEL)selector waitUntilDone:(BOOL)waitUntilDone withObjects:object, ...;
 
@@ -81,7 +81,7 @@
 
 - (void)ghu_performSelector:(SEL)selector onMainThread:(BOOL)onMainThread waitUntilDone:(BOOL)waitUntilDone arguments:(NSArray *)arguments;
 
-- (void)ghu_performSelector:(SEL)selector onMainThread:(BOOL)onMainThread waitUntilDone:(BOOL)waitUntilDone 
+- (void)ghu_performSelector:(SEL)selector onMainThread:(BOOL)onMainThread waitUntilDone:(BOOL)waitUntilDone
 								afterDelay:(NSTimeInterval)delay arguments:(NSArray *)arguments;
 
 

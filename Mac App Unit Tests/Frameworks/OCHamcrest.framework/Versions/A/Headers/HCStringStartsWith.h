@@ -25,7 +25,7 @@
 
 /**
     Tests if the argument is a string that starts with a substring.
-    
+
     @b Synonym: @ref startsWith
     @see HCStringStartsWith
     @ingroup text_matchers

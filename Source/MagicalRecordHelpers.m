@@ -54,14 +54,14 @@ static SEL errorHandlerAction = nil;
 	if (error)
 	{
         // If a custom error handler is set, call that
-        if (errorHandlerTarget != nil && errorHandlerAction != nil) 
+        if (errorHandlerTarget != nil && errorHandlerAction != nil)
 		{
             [errorHandlerTarget performSelector:errorHandlerAction withObject:error];
         }
 		else
 		{
 	        // Otherwise, fall back to the default error handling
-	        [self defaultErrorHandler:error];			
+	        [self defaultErrorHandler:error];
 		}
     }
 }
@@ -102,7 +102,7 @@ static SEL errorHandlerAction = nil;
 {
 	NSPersistentStoreCoordinator *coordinator = [NSPersistentStoreCoordinator MR_coordinatorWithSqliteStoreNamed:storeName];
 	[NSPersistentStoreCoordinator MR_setDefaultStoreCoordinator:coordinator];
-	
+
 	NSManagedObjectContext *context = [NSManagedObjectContext contextWithStoreCoordinator:coordinator];
 	[NSManagedObjectContext setDefaultContext:context];
 }
@@ -111,7 +111,7 @@ static SEL errorHandlerAction = nil;
 {
     NSPersistentStoreCoordinator *coordinator = [NSPersistentStoreCoordinator MR_coordinatorWithAutoMigratingSqliteStoreNamed:storeName];
     [NSPersistentStoreCoordinator MR_setDefaultStoreCoordinator:coordinator];
-    
+
     NSManagedObjectContext *context = [NSManagedObjectContext contextWithStoreCoordinator:coordinator];
     [NSManagedObjectContext setDefaultContext:context];
 }
@@ -120,7 +120,7 @@ static SEL errorHandlerAction = nil;
 {
 	NSPersistentStoreCoordinator *coordinator = [NSPersistentStoreCoordinator MR_coordinatorWithInMemoryStore];
 	[NSPersistentStoreCoordinator MR_setDefaultStoreCoordinator:coordinator];
-	
+
 	NSManagedObjectContext *context = [NSManagedObjectContext contextWithStoreCoordinator:coordinator];
 	[NSManagedObjectContext setDefaultContext:context];
 }
@@ -162,7 +162,7 @@ NSDate * dateFromString(NSString *value)
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:kMagicalRecordImportDefaultDateFormatString];
-    
+
     return [formatter dateFromString:value];
 }
 
@@ -172,14 +172,14 @@ NSInteger* newColorComponentsFromString(NSString *serializedColor)
     NSScanner *colorScanner = [NSScanner scannerWithString:serializedColor];
     NSString *colorType;
     [colorScanner scanUpToString:@"(" intoString:&colorType];
-    
+
     NSInteger *componentValues = malloc(4 * sizeof(NSInteger));
     if ([colorType hasPrefix:@"rgba"])
     {
         NSCharacterSet *rgbaCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@"(,)"];
 
         NSInteger *componentValue = componentValues;
-        while (![colorScanner isAtEnd]) 
+        while (![colorScanner isAtEnd])
         {
             [colorScanner scanCharactersFromSet:rgbaCharacterSet intoString:nil];
             [colorScanner scanInteger:componentValue];
@@ -198,7 +198,7 @@ UIColor * UIColorFromString(NSString *serializedColor)
                                      green:(componentValues[1] / 255.)
                                       blue:(componentValues[2] / 255.)
                                      alpha:componentValues[3]];
-    
+
     free(componentValues);
     return color;
 }

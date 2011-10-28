@@ -25,11 +25,11 @@ static NSPersistentStore *defaultPersistentStore_ = nil;
 }
 
 + (NSString *) MR_directory:(int) type
-{    
+{
     return [NSSearchPathForDirectoriesInDomains(type, NSUserDomainMask, YES) lastObject];
 }
 
-+ (NSString *)MR_applicationDocumentsDirectory 
++ (NSString *)MR_applicationDocumentsDirectory
 {
 	return [self MR_directory:NSDocumentDirectory];
 }
@@ -37,14 +37,14 @@ static NSPersistentStore *defaultPersistentStore_ = nil;
 + (NSString *)MR_applicationLibraryDirectory
 {
 #if !TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
-    
+
     NSString *applicationName = [[[NSBundle mainBundle] infoDictionary] valueForKey:(NSString *)kCFBundleNameKey];
     return [[self MR_directory:NSApplicationSupportDirectory] stringByAppendingPathComponent:applicationName];
-    
+
 #else
-    
+
 	return [self MR_directory:NSLibraryDirectory];
-    
+
 #endif
 }
 
@@ -53,7 +53,7 @@ static NSPersistentStore *defaultPersistentStore_ = nil;
 	NSArray *paths = [NSArray arrayWithObjects:[self MR_applicationDocumentsDirectory], [self MR_applicationLibraryDirectory], nil];
     NSFileManager *fm = [[NSFileManager alloc] init];
 
-    for (NSString *path in paths) 
+    for (NSString *path in paths)
     {
         NSString *filepath = [path stringByAppendingPathComponent:storeFileName];
         if ([fm fileExistsAtPath:filepath])
@@ -61,7 +61,7 @@ static NSPersistentStore *defaultPersistentStore_ = nil;
             return [NSURL fileURLWithPath:filepath];
         }
     }
-    
+
     //set default url
     return [NSURL fileURLWithPath:[[self MR_applicationLibraryDirectory] stringByAppendingPathComponent:storeFileName]];
 }

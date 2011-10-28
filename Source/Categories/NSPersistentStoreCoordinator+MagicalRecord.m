@@ -36,7 +36,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *pathToStore = [urlForStore URLByDeletingLastPathComponent];
-    
+
     NSError *error = nil;
 #if (TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR)
     BOOL pathWasCreated = [fileManager createDirectoryAtPath:[pathToStore path] withIntermediateDirectories:YES attributes:nil error:&error];
@@ -44,7 +44,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
     BOOL pathWasCreated = [fileManager createDirectoryAtURL:pathToStore withIntermediateDirectories:YES attributes:nil error:&error];
 #endif
 
-    if (!pathWasCreated) 
+    if (!pathWasCreated)
     {
         [MagicalRecordHelpers handleErrors:error];
     }
@@ -54,28 +54,28 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
 {
     NSURL *url = [storeFileName isKindOfClass:[NSURL class]] ? storeFileName : [NSPersistentStore MR_urlForStoreName:storeFileName];
     NSError *error = nil;
-    
+
     [self createPathToStoreFileIfNeccessary:url];
-    
+
     NSPersistentStore *store = [self addPersistentStoreWithType:NSSQLiteStoreType
                                                  configuration:nil
                                                            URL:url
                                                        options:options
                                                          error:&error];
-    if (!store) 
+    if (!store)
     {
         [MagicalRecordHelpers handleErrors:error];
     }
-    [NSPersistentStore MR_setDefaultPersistentStore:store];        
+    [NSPersistentStore MR_setDefaultPersistentStore:store];
 }
 
 + (NSPersistentStoreCoordinator *) MR_coordinatorWithPersitentStore:(NSPersistentStore *)persistentStore;
 {
     NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];
     NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    
+
     [psc MR_setupSqliteStoreNamed:[persistentStore URL] withOptions:nil];
-    
+
     return psc;
 }
 
@@ -85,7 +85,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
     NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
 
     [psc MR_setupSqliteStoreNamed:storeFileName withOptions:options];
-    
+
     return psc;
 }
 
@@ -100,7 +100,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
                              nil];
-    
+
     [self MR_setupSqliteStoreNamed:storeFileName withOptions:options];
 }
 
@@ -108,11 +108,11 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
 {
     NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    
+
     [coordinator MR_setupAutoMigratingSqliteStoreNamed:storeFileName];
-    
+
     //HACK: lame solution to fix automigration error "Migration failed after first pass"
-    if ([[coordinator persistentStores] count] == 0) 
+    if ([[coordinator persistentStores] count] == 0)
     {
         [coordinator performSelector:@selector(MR_setupAutoMigratingSqliteStoreNamed:) withObject:storeFileName afterDelay:0.5];
     }
@@ -123,7 +123,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
 {
 	NSManagedObjectModel *model = [NSManagedObjectModel MR_defaultManagedObjectModel];
 	NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-	
+
     [NSPersistentStore MR_setDefaultPersistentStore:[psc MR_addInMemoryStore]];
     return psc;
 }
@@ -132,7 +132,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator_ = nil;
 {
     NSError *error = nil;
     NSPersistentStore *store = [self addPersistentStoreWithType:NSInMemoryStoreType
-                                                         configuration:nil 
+                                                         configuration:nil
                                                                    URL:nil
                                                                options:nil
                                                                  error:&error];

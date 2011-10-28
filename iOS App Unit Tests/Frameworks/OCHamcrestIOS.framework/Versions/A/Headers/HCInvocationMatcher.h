@@ -10,7 +10,7 @@
 
 /**
     Supporting class for matching a feature of an object.
-    
+
     Tests whether the result of passing a given invocation to the value satisfies a given matcher.
 
     @ingroup helpers
@@ -24,7 +24,7 @@
 
 /**
     Determines whether a mismatch will be described in short form.
- 
+
     Default is long form, which describes the object, the name of the invocation, and the
     sub-matcher's mismatch diagnosis. Short form only has the sub-matcher's mismatch diagnosis.
  */
@@ -39,7 +39,7 @@
 
 /**
     Helper method for creating an invocation.
- 
+
     @b Deprecated: Use new name +invocationForSelector:onClass:
  */
 + (NSInvocation *)createInvocationForSelector:(SEL)selector onClass:(Class)aClass   __attribute__((deprecated));

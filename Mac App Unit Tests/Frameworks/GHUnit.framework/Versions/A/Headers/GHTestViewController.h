@@ -37,24 +37,24 @@
 
 	IBOutlet BWSplitView *_splitView;
 	IBOutlet NSView *_statusView;
-	IBOutlet NSView *_detailsView;	
-	IBOutlet NSOutlineView *_outlineView;	
+	IBOutlet NSView *_detailsView;
+	IBOutlet NSOutlineView *_outlineView;
 	IBOutlet NSTextView *_textView;
 	IBOutlet NSSegmentedControl *_textSegmentedControl;
   IBOutlet NSSegmentedControl *_segmentedControl;
   IBOutlet NSSearchField *_searchField;
-	
-	BOOL wrapInTextView_;		
+
+	BOOL wrapInTextView_;
 	NSString *status_;
 	double statusProgress_;
-	BOOL runInParallel_;	
+	BOOL runInParallel_;
 	NSString *runLabel_;
-  
+
   NSString *exceptionFilename_;
   NSInteger exceptionLineNumber_;
-	
+
 	GHTestSuite *suite_;
-	
+
 	GHTestOutlineViewModel *dataSource_;
   BOOL running_;
 }

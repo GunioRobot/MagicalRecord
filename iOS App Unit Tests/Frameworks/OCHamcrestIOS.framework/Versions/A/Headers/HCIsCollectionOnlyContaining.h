@@ -36,11 +36,11 @@
     <code>[NSArray arrayWithObjects:@"c", "a", @"b", nil]</code>
     would satisfy
     <code>onlyContains(lessThan(@"d"), nil)</code>.
-    
+
     If a @a items is not a matcher, it is equivalent to equalTo(x), so the array in the example
     above would also satisfy
     <code>onlyContains(@"a", @"b", @"c", nil)</code>.
- 
+
     @b Synonym: @ref onlyContains
     @param itemMatcher1  Comma-separated list of matchers - or values for @ref equalTo matching - ending with @c nil.
     @see HCIsCollectionOnlyContaining

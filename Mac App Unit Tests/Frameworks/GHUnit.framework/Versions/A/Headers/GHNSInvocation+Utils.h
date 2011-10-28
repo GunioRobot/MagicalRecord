@@ -45,7 +45,7 @@ while ((arg = va_arg(args, id))) \
 [arguments addObject:arg]; \
 va_end(args); \
 } \
-} while(0); 
+} while(0);
 
 @interface NSInvocation (GHUtils_GHUNIT)
 

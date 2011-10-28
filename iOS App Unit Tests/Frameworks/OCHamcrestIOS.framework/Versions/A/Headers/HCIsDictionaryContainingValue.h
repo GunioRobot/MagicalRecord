@@ -29,7 +29,7 @@
 
 /**
     Matches dictionaries containing a value satisfying a given matcher.
- 
+
     @b Synonym: @ref hasValue
     @param matcherOrValue  A matcher, or a value for @ref equalTo matching.
     @see HCIsDictionaryContainingValue

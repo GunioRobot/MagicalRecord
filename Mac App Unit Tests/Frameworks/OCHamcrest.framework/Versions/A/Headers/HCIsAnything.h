@@ -32,7 +32,7 @@
 
 /**
     This matcher always evaluates to @c YES.
- 
+
     @b Synonym: @ref anything
     @see HCIsAnything
     @ingroup core_matchers

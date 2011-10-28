@@ -10,9 +10,9 @@
 
 @interface GHTestApp : NSObject {
 	NSMutableArray *topLevelObjects_;
-	
+
 	GHTestWindowController *windowController_;
-	
+
 	GHTestSuite *suite_;
 }
 

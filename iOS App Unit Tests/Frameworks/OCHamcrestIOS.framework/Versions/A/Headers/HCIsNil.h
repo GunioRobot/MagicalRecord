@@ -25,7 +25,7 @@
 
 /**
     Matches if the value is @c nil.
- 
+
     @b Synonym: @ref nilValue
     @see HCIsNil
     @ingroup core_matchers
@@ -46,7 +46,7 @@ OBJC_EXPORT id<HCMatcher> HC_nilValue();
 
 /**
     Matches if the value is not @c nil.
- 
+
     @b Synonym: @ref notNilValue
     @see HCIsNil
     @see HCIsNot

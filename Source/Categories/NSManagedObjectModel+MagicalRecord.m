@@ -28,18 +28,18 @@ static NSManagedObjectModel *defaultManagedObjectModel_ = nil;
 	defaultManagedObjectModel_ = newDefaultModel;
 }
 
-+ (NSManagedObjectModel *) MR_newManagedObjectModel 
++ (NSManagedObjectModel *) MR_newManagedObjectModel
 {
     return [NSManagedObjectModel mergedModelFromBundles:nil];
 }
 
 + (NSManagedObjectModel *) MR_newModelNamed:(NSString *) modelName inBundleNamed:(NSString *) bundleName
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:[modelName stringByDeletingPathExtension] 
-                                                     ofType:[modelName pathExtension] 
+    NSString *path = [[NSBundle mainBundle] pathForResource:[modelName stringByDeletingPathExtension]
+                                                     ofType:[modelName pathExtension]
                                                 inDirectory:bundleName];
     NSURL *modelUrl = [NSURL fileURLWithPath:path];
-    
+
     return [[NSManagedObjectModel alloc] initWithContentsOfURL:modelUrl];
 }
 
@@ -47,7 +47,7 @@ static NSManagedObjectModel *defaultManagedObjectModel_ = nil;
 {
 	NSString *path = [[NSBundle mainBundle] pathForResource:[modelFileName stringByDeletingPathExtension] ofType:[modelFileName pathExtension]];
 	NSURL *momURL = [NSURL fileURLWithPath:path];
-	
+
 	NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:momURL];
 	return model;
 }

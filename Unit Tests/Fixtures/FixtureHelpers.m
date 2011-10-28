@@ -14,7 +14,7 @@
 {
     NSString *resource = [[NSBundle mainBundle] pathForResource:fixtureName ofType:@"plist"];
     NSData *plistData = [NSData dataWithContentsOfFile:resource];
-    
+
     return [NSPropertyListSerialization propertyListWithData:plistData options:NSPropertyListImmutable format:nil error:nil];
 }
 
@@ -23,7 +23,7 @@
     NSString *resource = [[NSBundle mainBundle] pathForResource:fixtureName ofType:@"json"];
     NSInputStream *inputStream = [NSInputStream inputStreamWithFileAtPath:resource];
     [inputStream open];
-    
+
     return [NSJSONSerialization JSONObjectWithStream:inputStream options:0 error:nil];
 }
 

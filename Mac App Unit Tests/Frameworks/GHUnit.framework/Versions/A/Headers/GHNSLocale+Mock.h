@@ -36,7 +36,7 @@
  #import "GHNSLocale+Mock.h"
  // This aliases the currentLocale method and with the specified locale identifier
  [NSLocale gh_setLocaleIdentifier:@"en_GB"];
-  
+
  [[NSLocale currentLocale] localeIdentifier] == "en_GB"
  @endcode
  */

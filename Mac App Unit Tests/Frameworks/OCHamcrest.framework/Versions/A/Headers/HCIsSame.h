@@ -29,7 +29,7 @@
 
 /**
     Evaluates to @c YES only when the argument is this same object.
- 
+
     @b Synonym: @ref sameInstance
     @see HCIsSame
     @ingroup core_matchers

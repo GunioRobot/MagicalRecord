@@ -28,7 +28,7 @@
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"booleanTestAttributeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"booleanTestAttribute"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];

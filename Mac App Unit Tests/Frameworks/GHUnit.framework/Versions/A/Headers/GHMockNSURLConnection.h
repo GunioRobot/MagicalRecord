@@ -35,46 +35,46 @@ extern NSString *const GHMockNSURLConnectionException;
 
 /*!
  NSURLConnection for mocking.
- 
+
  Use with GHAsyncTestCase to mock out connections.
- 
+
  @code
- 
+
  @interface GHNSURLConnectionMockTest : GHAsyncTestCase {}
  @end
- 
+
  @implementation GHNSURLConnectionMockTest
- 
+
  - (void)testMock {
 	 [self prepare];
-	 GHMockNSURLConnection *connection = [[GHMockNSURLConnection alloc] initWithRequest:nil delegate:self];	
+	 GHMockNSURLConnection *connection = [[GHMockNSURLConnection alloc] initWithRequest:nil delegate:self];
 	 [connection receiveHTTPResponseWithStatusCode:204 headers:testHeaders_ afterDelay:0.1];
 	 [connection receiveData:testData_ afterDelay:0.2];
 	 [connection finishAfterDelay:0.3];
 	 [self waitForStatus:kGHUnitWaitStatusSuccess timeout:1.0];
  }
- 
+
  - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	 GHAssertEquals([(NSHTTPURLResponse *)response statusCode], 204, nil);
 	 GHAssertEqualObjects([(NSHTTPURLResponse *)response allHeaderFields], testHeaders_, nil);
  }
- 
+
  - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
 	GHAssertEqualObjects(data, testData_, nil);
  }
- 
+
  - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	 [self notify:kGHUnitWaitStatusSuccess forSelector:@selector(testMock)];
  }
  @end
- 
+
  @endcode
  */
 @interface GHMockNSURLConnection : NSObject {
 	NSURLRequest *request_;
 	id delegate_; // weak
-	
-	BOOL cancelled_;	
+
+	BOOL cancelled_;
 	BOOL started_;
 }
 
@@ -158,7 +158,7 @@ extern NSString *const GHMockNSURLConnectionException;
  @param statusCode Status code for response
  @param MIMEType Content type for response header
  @param afterDelay Delay before responding (if < 0, there is no delay)
- */ 
+ */
 - (void)receiveData:(NSData *)data statusCode:(NSInteger)statusCode MIMEType:(NSString *)MIMEType afterDelay:(NSTimeInterval)delay;
 
 /*!

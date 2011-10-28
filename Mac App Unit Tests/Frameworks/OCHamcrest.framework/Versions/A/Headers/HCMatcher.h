@@ -10,9 +10,9 @@
 
 /**
     A matcher over acceptable values.
-    
+
     A matcher is able to describe itself to give feedback when it fails.
-    
+
     HCMatcher implementations should @b not directly implement this protocol.
     Instead, @b extend the HCBaseMatcher class, which will ensure that the HCMatcher API can grow
     to support new features and remain compatible with all HCMatcher implementations.
@@ -40,12 +40,12 @@
 
 /**
     Generates a description of why the matcher has not accepted the item.
-    
+
     The description will be part of a larger description of why a matching failed, so it should be
     concise.
-    
+
     This method assumes that @c matches:item is false, but will not check this.
-    
+
     @param item                 The item that the HCMatcher has rejected.
     @param mismatchDescription  The description to be built or appended to.
  */

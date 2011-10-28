@@ -33,7 +33,7 @@
 
 /**
     Matches dictionaries containing a key-value pair satisfying a given pair of matchers.
- 
+
     @b Synonym: @ref hasEntry
     @param keyMatcher    A matcher - or a value for @ref equalTo matching - for the key.
     @param valueMatcher  A matcher - or a value for @ref equalTo matching - for the value.

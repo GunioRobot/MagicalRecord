@@ -32,7 +32,7 @@
 
 /**
     Evaluates to @c YES if @em any of the given matchers evaluate to @c YES.
- 
+
     @b Synonym: @ref anyOf
     @param matcherOrValue1  Comma-separated list of matchers - or values for @ref equalTo matching - ending with @c nil.
     @see HCAnyOf
@@ -43,7 +43,7 @@ OBJC_EXPORT id<HCMatcher> HC_anyOf(id matcherOrValue1, ...);
 /**
     anyOf(matcherOrValue1, ...) -
     Evaluates to @c YES if @em any of the given matchers evaluate to @c YES.
- 
+
     Synonym for @ref HC_anyOf, available if @c HC_SHORTHAND is defined.
     @param matcherOrValue1  Comma-separated list of matchers - or values for @ref equalTo matching - ending with @c nil.
     @see HCAnyOf

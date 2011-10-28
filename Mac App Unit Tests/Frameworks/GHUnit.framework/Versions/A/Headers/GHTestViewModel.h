@@ -46,13 +46,13 @@ typedef enum {
  Test view model for use in a tree view.
  */
 @interface GHTestViewModel : NSObject <GHTestNodeDelegate> {
-	
+
   NSString *identifier_;
 	GHTestSuite *suite_;
 	GHTestNode *root_;
-	
+
 	GHTestRunner *runner_;
-	
+
 	NSMutableDictionary *map_; // id<GHTest>#identifier -> GHTestNode
 
 	BOOL editing_;

@@ -26,7 +26,7 @@
 
 /**
     Matches empty collection.
- 
+
     @b Synonym: @ref empty
     @see HCIsEmptyCollection
     @ingroup collection_matchers

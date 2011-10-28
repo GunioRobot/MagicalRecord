@@ -22,7 +22,7 @@
 
 - (void) testCanGetEntityDescriptionFromEntityClass
 {
-    
+
     GHFail(@"Test Not Implemented");
 }
 
@@ -38,7 +38,7 @@
 
 - (void) testCreateSimpleRequest
 {
-    
+
 }
 
 - (void) testCanSearchForNumberOfAllEntities

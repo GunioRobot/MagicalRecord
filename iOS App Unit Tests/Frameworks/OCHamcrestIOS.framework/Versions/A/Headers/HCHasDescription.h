@@ -24,7 +24,7 @@
 
 /**
     Evaluates whether [item description] satisfies a given matcher.
-    
+
     Examples:
     @li @ref hasDescription(@ref startsWith(\@"foo"))
     @li @ref hasDescription(\@"bar")

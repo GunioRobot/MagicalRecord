@@ -22,9 +22,9 @@
 {
     [NSManagedObjectModel setDefaultManagedObjectModel:[NSManagedObjectModel managedObjectModelNamed:@"TestModel.momd"]];
     [MagicalRecordHelpers setupCoreDataStackWithInMemoryStore];
-    
+
     id singleEntity = [FixtureHelpers dataFromPListFixtureNamed:@"SingleEntityWithNoRelationships"];
-    
+
     testEntity = [SingleEntityWithNoRelationships MR_importFromDictionary:singleEntity];
 }
 
@@ -97,7 +97,7 @@
 - (void) testImportNSColorAttributeToEntity
 {
     NSColor *actualColor = testEntity.colorTestAttribute;
-    
+
     assertThatFloat(actualColor.alphaComponent, is(equalToFloat(255./255.)));
     assertThatFloat(actualColor.redComponent, is(equalToFloat(64./255.)));
     assertThatFloat(actualColor.greenComponent, is(equalToFloat(128./255.)));

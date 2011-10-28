@@ -160,7 +160,7 @@ OBJC_EXPORT void HC_assertThatLongLongWithLocation(id testCase, long long actual
 /**
     Asserts that <code>long long</code> actual value, converted to an @c NSNumber, satisfies
     matcher.
-    
+
     @b Synonym: @ref assertThatLongLong
     @ingroup integration_numeric
  */
@@ -210,7 +210,7 @@ OBJC_EXPORT void HC_assertThatUnsignedCharWithLocation(id testCase, unsigned cha
 /**
     Asserts that <code>unsigned char</code> actual value, converted to an @c NSNumber, satisfies
     matcher.
-    
+
     @b Synonym: @ref assertThatUnsignedChar
     @ingroup integration_numeric
 */
@@ -236,7 +236,7 @@ OBJC_EXPORT void HC_assertThatUnsignedIntWithLocation(id testCase, unsigned int 
 /**
     Asserts that <code>unsigned int</code> actual value, converted to an @c NSNumber, satisfies
     matcher.
-    
+
     @b Synonym: @ref assertThatInt
     @ingroup integration_numeric
  */
@@ -262,7 +262,7 @@ OBJC_EXPORT void HC_assertThatUnsignedLongWithLocation(id testCase, unsigned lon
 /**
     Asserts that <code>unsigned long</code> actual value, converted to an @c NSNumber, satisfies
     matcher.
-    
+
     @b Synonym: @ref assertThatUnsignedLong
     @ingroup integration_numeric
  */
@@ -288,7 +288,7 @@ OBJC_EXPORT void HC_assertThatUnsignedLongLongWithLocation(id testCase, unsigned
 /**
     Asserts that <code>unsigned long long</code> actual value, converted to an @c NSNumber,
     satisfies matcher.
-    
+
     @b Synonym: @ref assertThatUnsignedLongLong
     @ingroup integration_numeric
  */
@@ -314,7 +314,7 @@ OBJC_EXPORT void HC_assertThatUnsignedShortWithLocation(id testCase, unsigned sh
 /**
     Asserts that <code>unsigned short</code> actual value, converted to an @c NSNumber, satisfies
     matcher.
-    
+
     @b Synonym: @ref assertThatUnsignedShort
     @ingroup integration_numeric
  */

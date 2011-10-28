@@ -28,7 +28,7 @@ static NSString const * kMagicalRecordManagedObjectContextKey = @"MagicalRecord_
 
 + (void) setDefaultContext:(NSManagedObjectContext *)moc
 {
-	if (defaultManageObjectContext != moc) 
+	if (defaultManageObjectContext != moc)
 	{
 		defaultManageObjectContext = moc;
 	}
@@ -37,13 +37,13 @@ static NSString const * kMagicalRecordManagedObjectContextKey = @"MagicalRecord_
 + (void) resetDefaultContext
 {
     void (^resetBlock)(void) = ^{
-        [[NSManagedObjectContext defaultContext] reset];        
+        [[NSManagedObjectContext defaultContext] reset];
     };
-    
+
     dispatch_async(dispatch_get_current_queue(), resetBlock);
 }
 
-+ (void) resetContextForCurrentThread 
++ (void) resetContextForCurrentThread
 {
     [[NSManagedObjectContext contextForCurrentThread] reset];
 }
@@ -94,10 +94,10 @@ static NSString const * kMagicalRecordManagedObjectContextKey = @"MagicalRecord_
 
 - (void) mergeChangesFromNotification:(NSNotification *)notification
 {
-	ARLog(@"Merging changes to %@context%@", 
+	ARLog(@"Merging changes to %@context%@",
           self == [NSManagedObjectContext defaultContext] ? @"*** DEFAULT *** " : @"",
           ([NSThread isMainThread] ? @" *** on Main Thread ***" : @""));
-    
+
 	[self mergeChangesFromContextDidSaveNotification:notification];
 }
 
@@ -119,10 +119,10 @@ static NSString const * kMagicalRecordManagedObjectContextKey = @"MagicalRecord_
 	BOOL saved = NO;
 	@try
 	{
-		ARLog(@"Saving %@Context%@", 
-              self == [[self class] defaultContext] ? @" *** Default *** ": @"", 
+		ARLog(@"Saving %@Context%@",
+              self == [[self class] defaultContext] ? @" *** Default *** ": @"",
               ([NSThread isMainThread] ? @" *** on Main Thread ***" : @""));
-        
+
 		saved = [self save:&error];
 	}
 	@catch (NSException *exception)
@@ -140,16 +140,16 @@ static NSString const * kMagicalRecordManagedObjectContextKey = @"MagicalRecord_
 {
 	NSError *error = nil;
 	BOOL saved = NO;
-	
+
 	@try
 	{
 		saved = [self save:&error];
 	}
 	@catch (NSException *exception)
 	{
-		ARLog(@"Problem saving: %@", (id)[exception userInfo] ?: (id)[exception reason]);	
+		ARLog(@"Problem saving: %@", (id)[exception userInfo] ?: (id)[exception reason]);
 	}
-	
+
 	if (!saved && errorCallback)
 	{
 		errorCallback(error);
@@ -205,7 +205,7 @@ static NSString const * kMagicalRecordManagedObjectContextKey = @"MagicalRecord_
 - (void) setNotifiesMainContextOnSave:(BOOL)enabled
 {
     NSManagedObjectContext *mainContext = [[self class] defaultContext];
-    if (self != mainContext) 
+    if (self != mainContext)
     {
         SEL selector = enabled ? @selector(observeContextOnMainThread:) : @selector(stopObservingContext:);
         objc_setAssociatedObject(self, @"notifiesMainContext", [NSNumber numberWithBool:enabled], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
